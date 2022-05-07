@@ -5,10 +5,13 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Summarizer {
-    ShopItems shopItems = new ShopItems();
+    private ShopItems shopItems;
+
+    public Summarizer(ShopItems shopItems){
+        this.shopItems=shopItems;
+    }
 
     public float sum(String input) {
-
         String[] listOfNameOfItems = input.split("");
         for (String l : listOfNameOfItems) {
             if (!shopItems.getItems().containsKey(l))
