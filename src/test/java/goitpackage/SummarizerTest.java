@@ -5,7 +5,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+
 import java.util.HashMap;
+import java.util.Map;
+
 import static org.mockito.Mockito.when;
 
 //The idea of unit testing - isolation.
@@ -17,20 +20,24 @@ public class SummarizerTest {
     @Mock
     private ShopItems shopItems = Mockito.mock(ShopItems.class);
     private Summarizer summarizer;
+    private Map<String, Item> items;
+
 
     @BeforeEach
     public void beforeEach() {
         summarizer = new Summarizer(shopItems);
+        items = new HashMap<>();
+        items.put("A", new Item(1.25f, 3, 3.0f));
+        items.put("B", new Item(4.25f));
+        items.put("C", new Item(1.0f,6,5.0f));
+        items.put("D", new Item(0.75f));
     }
 
     @Test
     public void testThatPriceForACountedCorrect() {
         //try to extract Summarizer to global variable. But we must be sure that we have a new object for each test
         //we can use before/after each for it
-        when(shopItems.getItems()).thenReturn(new HashMap<String, Item>(){{
-            put("A", new Item(1.25f, 3, 3.0f));
-        }
-        });
+        when(shopItems.getItems()).thenReturn(items);
         Assertions.assertEquals(1.25f, summarizer.sum("A"));
     }
 
@@ -38,25 +45,13 @@ public class SummarizerTest {
     @Test
     public void testThatPriseForABCDAAACCountedCorrect() {
         // Minor: you can create the Map in global state to reuse it for second test
-        when(shopItems.getItems()).thenReturn(new HashMap<String, Item>(){{
-            put("A", new Item(1.25f, 3, 3.0f));
-            put("B", new Item(4.25f));
-            put("C", new Item(1.0f,6,5.0f));
-            put("D", new Item(0.75f));
-        }
-        });
+        when(shopItems.getItems()).thenReturn(items);
         Assertions.assertEquals(11.25f, summarizer.sum("ABCDAAAC"));
     }
 
     @Test
     public void testThatPriseForIncorrectItemWorksCorrect() {
-        when(shopItems.getItems()).thenReturn(new HashMap<String, Item>(){{
-            put("A", new Item(1.25f, 3, 3.0f));
-            put("B", new Item(4.25f));
-            put("C", new Item(1.0f,6,5.0f));
-            put("D", new Item(0.75f));
-        }
-        });
+        when(shopItems.getItems()).thenReturn(items);
         Assertions.assertThrows(
                 IllegalArgumentException.class,
                 () -> summarizer.sum("1"));
