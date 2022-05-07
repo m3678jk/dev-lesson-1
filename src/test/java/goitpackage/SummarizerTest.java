@@ -15,7 +15,7 @@ import static org.mockito.Mockito.when;
 
 public class SummarizerTest {
     @Mock
-    private ShopItems shopItems
+    private ShopItems shopItems;
     private Summarizer summarizer;
 
     @BeforeEach
