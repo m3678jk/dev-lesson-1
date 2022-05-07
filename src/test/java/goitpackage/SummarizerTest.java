@@ -37,6 +37,7 @@ public class SummarizerTest {
 
     @Test
     public void testThatPriseForABCDAAACCountedCorrect() {
+        // Minor: you can create the Map in global state to reuse it for second test
         when(shopItems.getItems()).thenReturn(new HashMap<String, Item>(){{
             put("A", new Item(1.25f, 3, 3.0f));
             put("B", new Item(4.25f));
