@@ -15,13 +15,12 @@ import static org.mockito.Mockito.when;
 
 public class SummarizerTest {
     @Mock
-    private ShopItems shopItems;
+    private ShopItems shopItems = Mockito.mock(ShopItems.class);
     private Summarizer summarizer;
 
     @BeforeEach
     public void beforeEach() {
         summarizer = new Summarizer(shopItems);
-        shopItems = Mockito.mock(ShopItems.class);
     }
 
     @Test
