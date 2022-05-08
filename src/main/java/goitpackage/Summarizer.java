@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Summarizer {
-    private ShopItems shopItems;
+    private final ShopItems shopItems;
 
     public Summarizer(ShopItems shopItems){
         this.shopItems=shopItems;

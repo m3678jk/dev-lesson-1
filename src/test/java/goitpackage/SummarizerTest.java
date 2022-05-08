@@ -43,14 +43,14 @@ public class SummarizerTest {
 
 
     @Test
-    public void testThatPriseForABCDAAACCountedCorrect() {
+    public void testThatPriceForABCDAAACCountedCorrect() {
         // Minor: you can create the Map in global state to reuse it for second test
         when(shopItems.getItems()).thenReturn(items);
         Assertions.assertEquals(11.25f, summarizer.sum("ABCDAAAC"));
     }
 
     @Test
-    public void testThatPriseForIncorrectItemWorksCorrect() {
+    public void testThatPriceForIncorrectItemWorksCorrect() {
         when(shopItems.getItems()).thenReturn(items);
         Assertions.assertThrows(
                 IllegalArgumentException.class,
