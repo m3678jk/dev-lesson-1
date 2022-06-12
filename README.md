@@ -11,10 +11,10 @@ Calculate the cost of the basket, taking into account discounts.
 At the moment, the "warehouse" of the store and prices are as follows:
 
 Product   Price (for 1 piece)   Promotional Qty   Promotion price
-A /       1.25/                 3/                  3.00
-B /       4.25/                 -/                   -
-C /       1.00/                 6/                 5.00
-D /       0.75/                 -/                  -
+A /       1.25/                 3/                  3.00 \n
+B /       4.25/                 -/                   - \n
+C /       1.00/                 6/                 5.00 \n
+D /       0.75/                 -/                  - \n
 
  
 Technical requirements:
