@@ -1,5 +1,6 @@
 # dev-lesson-1
 Task:
+JUnit, Mockito
 Write an application based on below info:
 
 Grocery store app. Each product in the store has its own price. 
